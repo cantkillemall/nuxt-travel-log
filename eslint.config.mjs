@@ -3,6 +3,8 @@ import antfu from '@antfu/eslint-config';
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs';
 
+/// TODO: add tailwindcss plugin
+
 export default withNuxt(
   // Your custom configs here
   antfu({
@@ -15,6 +17,7 @@ export default withNuxt(
       semi: true,
       quotes: 'single',
     },
+    ignores: ['.pnpm-store/**'],
   }, {
     rules: {
       'ts/consistent-type-definitions': ['error', 'type'],
