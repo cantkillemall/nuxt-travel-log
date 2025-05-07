@@ -9,7 +9,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: build
+    environment: Build
     env:
       NODE_ENV: development
       TURSO_DATABSASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
