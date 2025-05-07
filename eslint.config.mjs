@@ -17,7 +17,7 @@ export default withNuxt(
       semi: true,
       quotes: 'single',
     },
-    ignores: ['.pnpm-store/**'],
+    ignores: ['.pnpm-store/**', '**/migrations/**'],
   }, {
     rules: {
       'ts/consistent-type-definitions': ['error', 'type'],
