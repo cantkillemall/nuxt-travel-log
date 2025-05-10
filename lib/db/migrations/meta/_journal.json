@@ -15,6 +15,13 @@
       "when": 1746684684524,
       "tag": "0001_unknown_hulk",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1746873538570,
+      "tag": "0002_black_moira_mactaggert",
+      "breakpoints": true
     }
   ]
 }
