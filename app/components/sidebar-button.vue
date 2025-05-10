@@ -10,8 +10,16 @@ const route = useRoute();
 </script>
 
 <template>
-  <div class="" :data-tip="showLabel ? undefined : label" :class="{ 'tooltip tooltip-right': !showLabel }">
-    <NuxtLink :to="href" :class="{ 'bg-base-300': route.path === href, 'justify-center': !showLabel, 'justify-start': showLabel }" class="flex gap-2 p-2 hover:bg-base-300 hover:cursor-pointer flex-nowrap">
+  <div
+    class=""
+    :data-tip="showLabel ? undefined : label"
+    :class="{ 'tooltip tooltip-right': !showLabel }"
+  >
+    <NuxtLink
+      :to="href"
+      :class="{ 'bg-base-300': route.path === href, 'justify-center': !showLabel, 'justify-start': showLabel }"
+      class="flex gap-2 p-2 hover:bg-base-300 hover:cursor-pointer flex-nowrap"
+    >
       <Icon :name="icon" size="24" />
       <Transition name="grow">
         <span v-if="showLabel">{{ label }}</span>
