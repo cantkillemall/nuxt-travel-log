@@ -1,12 +1,18 @@
 <script lang="ts" setup>
 import { CENTER_USA } from '~~/lib/db/constants';
+import { useMapStore } from '~~/stores/map';
 
+const mapStore = useMapStore();
 const colorMode = useColorMode();
 // const style = 'https://demotiles.maplibre.org/style.json';
 
 const style = computed(() => colorMode.value === 'dark' ? '/styles/dark.json' : 'https://tiles.openfreemap.org/styles/liberty');
 // const center = [3.33333, 50.48333];
 const zoom = 3;
+
+onMounted(() => {
+  mapStore.init();
+});
 </script>
 
 <template>
@@ -16,6 +22,21 @@ const zoom = 3;
     :zoom="zoom"
   >
     <MglNavigationControl />
+    <MglMarker
+      v-for="point in mapStore.mapPoints"
+      :key="point.id"
+      :coordinates="[point.long, point.lat]"
+    >
+      <template #marker>
+        <div class="tooltip tooltip-top" :data-tip="point.label">
+          <Icon
+            name="tabler:map-pin-filled"
+            size="32"
+            class="text-secondary"
+          />
+        </div>
+      </template>
+    </MglMarker>
   </MglMap>
 </template>
 
